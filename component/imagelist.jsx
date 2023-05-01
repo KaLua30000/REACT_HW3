@@ -1,3 +1,24 @@
+useEffect(() => {
+    // Firebase 初始化設定
+    const firebaseConfig = {
+        apiKey: "AIzaSyBm_Yu3pOLVE91-309EjUZod_ZTcbB7klU",
+        authDomain: "homework-33781.firebaseapp.com",
+        projectId: "homework-33781",
+        storageBucket: "homework-33781.appspot.com",
+        messagingSenderId: "846922112140",
+        appId: "1:846922112140:web:fcc9239b5202960618efa9"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const database = firebase.database().ref();
+
+    database.on('value', (snapshot) => {
+        const data = snapshot.val();
+        setData(data);
+    });
+}, []);
+
 export default function ImageList() {
     return (
         <div>
